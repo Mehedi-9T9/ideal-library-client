@@ -6,7 +6,7 @@ const Navbar = () => {
     const links = <>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/allbook">All Book</NavLink>
-        <NavLink to="/addbook">Add Book</NavLink>
+        <NavLink to="/addBook">Add Book</NavLink>
         <NavLink to="/borrowedBook">Borrowed Book</NavLink>
     </>
     return (
@@ -21,7 +21,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to="/"><a className="  text-2xl font-platypi font-bold text-black"> <span className="text-[#C20E1A] text-2xl   ">Ideal</span>  Library</a></Link>
+                    <Link to="/"><a className="  text-xl md:text-2xl font-platypi font-bold text-black"> <span className="text-[#C20E1A]    ">Ideal</span>  Library</a></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 space-x-10 text-[#343F52] text-base font-medium font-poppins">

@@ -5,6 +5,7 @@ import Error from '../ErrorPage/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Authentic/Login/Login';
 import Rejister from '../Authentic/Rejister/Rejister';
+import AddBook from '../Pages/AddBook/AddBook';
 
 const Routes = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const Routes = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>
+            },
+            {
+                path: "/addBook",
+                element: <AddBook></AddBook>
             },
             {
                 path: "/login",
