@@ -10,7 +10,7 @@ const Navbar = () => {
         <NavLink to="/borrowedBook">Borrowed Book</NavLink>
     </>
     return (
-        <div className="bg-[#F6F7F9]">
+        <div className="bg-[#F6F7F9] drop-shadow-sm">
             <div className="navbar container mx-auto py-5">
                 <div className="navbar-start">
                     <div className="dropdown">

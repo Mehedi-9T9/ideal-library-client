@@ -1,7 +1,7 @@
 
 const AddBook = () => {
     return (
-        <div className='container mx-auto bg-[#FEF3F0] md:mt-20 rounded-xl'>
+        <div className='container mx-auto bg-[#FEF3F0] md:my-20 rounded-xl drop-shadow-md'>
             <h2 className='text-3xl font-platypi font-semibold text-center pt-10  text-[#C20E1A]'>Add Your <span className='text-black'> Book</span></h2>
             <p className='text-center font-poppins text-[#B09CA9] my-5 px-5'> You present Your self with book, You present Your self with book, You present Your self with book,  </p>
             <form className="card-body md:grid grid-cols-2 gap-x-10 px-20">
@@ -60,7 +60,7 @@ const AddBook = () => {
                 </div>
 
                 <div className="form-control mt-6 md:col-span-2 ">
-                    <button className="p-3 rounded-lg bg-red-700 text-white font-semibold text-lg font-poppins">Add Book</button>
+                    <button className="p-3 rounded-lg bg-red-700  text-white font-semibold text-lg font-poppins">Add Book</button>
                 </div>
             </form>
         </div>
