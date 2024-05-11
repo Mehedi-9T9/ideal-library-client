@@ -1,5 +1,9 @@
 import React from 'react';
 import BookCard from './BookCard';
+import Romantic from '../Category/Romantic';
+import History from '../Category/History';
+import Religion from '../Category/Religion';
+import Kids from '../Category/Kids';
 
 
 const Books = () => {
@@ -9,19 +13,22 @@ const Books = () => {
             <div role="tablist" className="tabs tabs-lifted  ">
                 <input type="radio" name="my_tabs_1" role="tab" className="tab text-xl font-platypi" aria-label="Romantic" />
                 <div role="tabpanel" className="tab-content p-10">
-
-                    <div className=' grid grid-cols-3 gap-5 '>
-                        {arr.map(ar => <BookCard key={ar}></BookCard>)}
-                    </div>
+                    <Romantic></Romantic>
                 </div>
 
                 <input type="radio" name="my_tabs_1" role="tab" className="tab text-xl font-platypi" aria-label="History" checked />
-                <div role="tabpanel" className="tab-content p-10">Tab content 2</div>
+                <div role="tabpanel" className="tab-content p-10">
+                    <History></History>
+                </div>
 
                 <input type="radio" name="my_tabs_1" role="tab" className="tab text-xl font-platypi" aria-label="Religion" />
-                <div role="tabpanel" className="tab-content p-10">Tab content 3</div>
+                <div role="tabpanel" className="tab-content p-10">
+                    <Religion></Religion>
+                </div>
                 <input type="radio" name="my_tabs_1" role="tab" className="tab text-xl font-platypi" aria-label="Kids" />
-                <div role="tabpanel" className="tab-content p-10">Tab content 4</div>
+                <div role="tabpanel" className="tab-content p-10">
+                    <Kids></Kids>
+                </div>
             </div>
 
         </div>

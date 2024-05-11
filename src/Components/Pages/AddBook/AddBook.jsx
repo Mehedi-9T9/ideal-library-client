@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import useProvider from "../../Provider/useProvider";
+import axios from "axios";
 const AddBook = () => {
     const { users } = useProvider()
     const { register, handleSubmit, watch, formState: { errors }, } = useForm()
@@ -7,8 +8,10 @@ const AddBook = () => {
     const onSubmit = (data) => {
         const email = users.email
         const newdata = { ...data, email }
-
         console.log(newdata)
+        axios.post('http://localhost:5000/addBook', newdata)
+            .then(res => console.log(res.data))
+
     }
     return (
         <div className='container mx-auto bg-[#FEF3F0] md:my-20 rounded-xl drop-shadow-md'>
@@ -25,7 +28,7 @@ const AddBook = () => {
                     <label className="label">
                         <span className="label-text text-lg font-platypi">Quantity</span>
                     </label>
-                    <input type="number" {...register("quantity", { required: true })} placeholder="1" className="input input-bordered  bg-[#fff]" required />
+                    <input type="number" {...register("quantity", { valueAsNumber: true }, { required: true })} placeholder="1" className="input input-bordered  bg-[#fff]" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
@@ -48,7 +51,7 @@ const AddBook = () => {
                     <label className="label">
                         <span className="label-text text-lg font-platypi">Rating</span>
                     </label>
-                    <input type="number" {...register("rating", { required: true })} min={1} max={5} placeholder="Author Name" className="input input-bordered bg-[#fff]" required />
+                    <input type="number" {...register("rating", { valueAsNumber: true }, { required: true })} min={1} max={5} placeholder="Author Name" className="input input-bordered bg-[#fff]" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
