@@ -31,7 +31,7 @@ const Bannar = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className='md:flex md:h-[500px] bg-[#333] text-white rounded-xl p-10 md:p-20'>
+                    <div className='md:flex md:h-[500px] bg-[#333] text-white rounded-xl p-10 md:p-20 z-0'>
                         <img src="https://i.ibb.co/9cHwFHZ/slider-3.webp" className=' object-contain' alt="" />
                         <div className='my-auto'>
                             <h2 className='text-2xl md:text-4xl font-platypi font-bold'>Exploring the World Through Reading</h2>
@@ -42,7 +42,7 @@ const Bannar = () => {
                 </SwiperSlide>
                 <SwiperSlide>
 
-                    <div style={{ backgroundImage: "url('https://i.ibb.co/xMVN8HT/slider-1.jpg')" }} className=' text-white md:bg-center md:h-[500px] rounded-xl'>
+                    <div style={{ backgroundImage: "url('https://i.ibb.co/xMVN8HT/slider-1.jpg')" }} className=' text-white md:bg-center md:h-[500px] rounded-xl z-0'>
                         {/* <img src="https://i.ibb.co/xMVN8HT/slider-1.jpg" alt="" /> */}
                         <div className='p-10 md:p-20'>
                             <h2 className='text-4xl font-platypi font-bold'>Unveiling the Secrets of Learning</h2>
@@ -54,7 +54,7 @@ const Bannar = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className='md:flex md:h-[500px] bg-[#333] text-white rounded-xl p-10 md:p-20'>
+                    <div className='md:flex md:h-[500px] bg-[#333] text-white rounded-xl p-10 md:p-20 z-0'>
                         <img src="https://i.ibb.co/StqgJQt/slider.png" className='object-contain md:w-[50%]' alt="" />
                         <div className='md:w-[50%]'>
                             <h2 className='text-2xl md:text-4xl font-platypi font-bold'>Understanding Its Role <br /> in Our Lives</h2>
