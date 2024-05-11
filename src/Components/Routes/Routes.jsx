@@ -8,6 +8,7 @@ import Rejister from '../Authentic/Rejister/Rejister';
 import AddBook from '../Pages/AddBook/AddBook';
 import Books from '../Pages/AllBook/Books';
 import BorrowedBook from '../Pages/BorrowedBook/BorrowedBook';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const Routes = createBrowserRouter([
     {
@@ -25,7 +26,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/addBook",
-                element: <AddBook></AddBook>
+                element: <PrivateRoute><AddBook></AddBook></PrivateRoute>
             },
             {
                 path: "/borrowedBook",

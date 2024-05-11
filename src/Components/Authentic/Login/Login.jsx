@@ -1,8 +1,12 @@
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import useProvider from "../../Provider/useProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { loginUser, googleLogin } = useProvider()
+    const location = useLocation()
+    const from = location.state
+    const navigate = useNavigate()
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -13,6 +17,8 @@ const Login = () => {
                 // Signed in
                 const user = userCredential.user;
                 console.log(user);
+                navigate(from)
+
                 // ...
             })
             .catch((error) => {

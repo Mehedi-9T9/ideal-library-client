@@ -6,18 +6,23 @@ export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
     const [users, setUsers] = useState(null)
+    const [loading, setLoading] = useState(true)
     const auth = getAuth(app)
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const loginUser = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const logoutUser = () => {
+        setLoading(true)
         return signOut(auth)
     }
     const googleProvider = new GoogleAuthProvider()
     const googleLogin = () => {
+        setLoading(true)
         signInWithPopup(auth, googleProvider)
     }
     useEffect(() => {
@@ -27,15 +32,17 @@ const AuthProvider = ({ children }) => {
                 // https://firebase.google.com/docs/reference/js/auth.user
                 const uid = user.uid;
                 setUsers(user)
+                setLoading(false)
                 // ...
             } else {
                 // User is signed out
                 setUsers(null)
+                setLoading(false)
                 // ...
             }
         });
     }, [])
-    const info = { createUser, loginUser, logoutUser, users, googleLogin }
+    const info = { createUser, loginUser, logoutUser, users, googleLogin, loading }
     return (
         <div>
             <AuthContext.Provider value={info}>
