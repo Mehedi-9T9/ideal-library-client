@@ -3,9 +3,9 @@ import { FaPenAlt } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
-const BookCard = ({ info }) => {
-    const { bookName, rating, photo, category, authorName, description, _id } = info
-    console.log(info);
+const BookCard = ({ info, returnHandle }) => {
+    const { bookName, rating, photo, category, authorName, description, _id, returnDate, quantity } = info
+
     return (
         <div className="card  bg-[#F7F7F7] drop-shadow-md flex flex-row py-6 px-10">
             <figure className=" rounded-xl">
@@ -19,6 +19,10 @@ const BookCard = ({ info }) => {
                     <FaPenAlt />
                     <p className='font-poppins'>{authorName}</p>
                 </div>
+                {
+                    returnDate ? <p className='text-red-700 font-semibold font-poppins'>Return Date: <span className='font-platypi text-black'>{returnDate}</span></p> : null
+                }
+                <p className='font-poppins font-semibold'>Quantity: <span className='font-bold font-platypi text-red-500'>{quantity}</span></p>
 
                 <div defaultValue={rating} className="rating gap-1">
                     <input type="radio" name="rating-3" className="mask mask-heart bg-red-500" />
@@ -30,7 +34,12 @@ const BookCard = ({ info }) => {
 
                 <div className="card-actions items-center mt-20">
                     <p><MdCategory className='inline-block text-2xl' /> {category}</p>
-                    <Link to={`/book/${_id}`} ><button className="btn bg-[#FEF3F0] drop-shadow-md text-red-700 font-platypi font-medium">Details</button></Link>
+                    {
+                        returnDate ? <button onClick={() => returnHandle(_id)} className="btn bg-[#FEF3F0] drop-shadow-md text-red-700 font-platypi font-medium">Return</button> :
+                            <Link to={`/book/${_id}`} ><button className="btn bg-[#FEF3F0] drop-shadow-md text-red-700 font-platypi font-medium">Details</button></Link>
+
+
+                    }
                 </div>
             </div>
         </div>
