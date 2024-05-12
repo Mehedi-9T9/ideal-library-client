@@ -5,11 +5,13 @@ import { useLoaderData } from 'react-router-dom';
 const BookDetails = () => {
     const data = useLoaderData()
     const { photo, bookName, authorName, description, about, _id, quantity } = data
+    const { _id: bookId, ...postData } = data
     const borrowHandle = (e) => {
         e.preventDefault()
         const name = e.target.name.value
         const returnDate = e.target.returnDate.value
-        const borrowInfo = { ...data, name, returnDate }
+        const borrowInfo = { ...postData, name, returnDate }
+
         console.log(borrowInfo);
         // fetch(`http://localhost:5000/bookDetails/${_id}`)
         axios.post(`http://localhost:5000/bookDetails/${_id}`, borrowInfo)
