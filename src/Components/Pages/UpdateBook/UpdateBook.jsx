@@ -1,19 +1,18 @@
 import { useForm } from "react-hook-form"
-import useProvider from "../../Provider/useProvider";
+
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 
 const UpdateBook = () => {
-    const { users } = useProvider()
+
     const updateData = useLoaderData()
     const { bookName, rating, photo, category, authorName, description, _id, returnDate, quantity, about } = updateData
-    console.log(updateData);
+
     const { register, handleSubmit, watch, formState: { errors }, } = useForm()
     const onSubmit = (data) => {
-        const email = users.email
-        const newdata = { ...data, email }
-        console.log(newdata)
-        axios.post('http://localhost:5000/addBook', newdata)
+
+        console.log(data);
+        axios.patch(`http://localhost:5000/updateBook/${_id}`, data)
             .then(res => console.log(res.data))
 
     }

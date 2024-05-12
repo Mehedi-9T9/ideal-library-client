@@ -1,11 +1,14 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const BookDetails = () => {
+    const [work, setWork] = useState(false)
     const data = useLoaderData()
     const { photo, bookName, authorName, description, about, _id, quantity } = data
     const { _id: bookId, ...postData } = data
+
+    console.log(work);
     const borrowHandle = (e) => {
         e.preventDefault()
         const name = e.target.name.value
@@ -45,7 +48,10 @@ const BookDetails = () => {
                     <h2 className='text-2xl font-platypi text-black'>Example:</h2>
                     <p className='text-[#B09CA9]'>{about}</p>
                 </div>
-                <button onClick={() => document.getElementById('my_modal_5').showModal()} className='bg-[#FEF3F0] btn mt-10 drop-shadow-md text-red-700 font-semibold font-platypi text-lg'>Borrow</button>
+                {
+                    quantity < 1 ? <button disabled={true} onClick={() => document.getElementById('my_modal_5').showModal()} className='bg-[#FEF3F0] btn mt-10 drop-shadow-md text-red-700 font-semibold font-platypi text-lg'>Borrow</button> :
+                        <button onClick={() => document.getElementById('my_modal_5').showModal()} className='bg-[#FEF3F0] btn mt-10 drop-shadow-md text-red-700 font-semibold font-platypi text-lg'>Borrow</button>
+                }
             </div>
 
             {/* Open the modal using document.getElementById('ID').showModal() method */}
