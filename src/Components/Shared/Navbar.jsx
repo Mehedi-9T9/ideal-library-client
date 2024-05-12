@@ -20,6 +20,7 @@ const Navbar = () => {
         <NavLink to="/allbook">All Book</NavLink>
         <NavLink to="/addBook">Add Book</NavLink>
         <NavLink to="/borrowedBook">Borrowed Book</NavLink>
+        <NavLink to="/myBook">My Book</NavLink>
     </>
     return (
         <div className="bg-[#F6F7F9] drop-shadow-sm">
