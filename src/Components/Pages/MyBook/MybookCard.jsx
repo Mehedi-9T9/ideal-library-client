@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const MybookCard = ({ info }) => {
     const { bookName, rating, photo, category, authorName, description, _id, returnDate, quantity } = info
+
     return (
         <div className="card  bg-[#F7F7F7] drop-shadow-md flex flex-row py-6 px-10">
             <figure className=" rounded-xl">

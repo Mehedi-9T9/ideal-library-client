@@ -10,32 +10,35 @@ const Review = () => {
     const fedback = [
         {
             name: "Mehedi",
-            message: "This id Good Website"
+            message: "This id Good Website",
+            img: "https://i.ibb.co/0sPq1PC/asian-man-1468032-640.jpg"
         },
         {
-            name: "Rifat",
-            message: "This id Good Website -2"
+            name: "Rafiya Akter",
+            message: "This is awesome learning site",
+            img: "https://i.ibb.co/s1D1cks/blog-new-13.jpg"
         },
         {
             name: "Tuhin",
-            message: "This id Good Website -3"
+            message: "Wow amizing web site",
+            img: "https://i.ibb.co/hDw3kzQ/download-1.jpg"
         },
         {
-            name: "Rdx Rifat",
-            message: "This id Good Website -4"
+            name: "Sumaiya Akter",
+            message: "This is Beuatiful Website",
+            img: "https://i.ibb.co/hB9xjVC/slider2-image.png"
         },
         {
             name: "Sobuj",
-            message: "This id Good Website -5"
+            message: "This is student helpful site",
+            img: "https://i.ibb.co/WPGZhbm/download.jpg"
         },
         {
-            name: "Mustak",
-            message: "This id Good Website -6"
+            name: "Mukan Mim",
+            message: "Lovely Library",
+            img: "https://i.ibb.co/j60L9GN/download-3.jpg"
         },
-        {
-            name: "Habib",
-            message: "This id Good Website -7"
-        }
+
     ]
     return (
         <div className='container mx-auto my-10'>
@@ -58,11 +61,19 @@ const Review = () => {
                 navigation={true}
                 virtual
             >
-                {fedback.map((item, inx) => (
+                {fedback?.map((item, inx) => (
                     <SwiperSlide key={inx} >
                         <div className='bg-[#FeF3F0] w-[400px]  p-5 rounded-xl drop-shadow-md'>
-                            <h2 className="text-2xl font-bold text-center">{item.name}</h2>
-                            <p className="text-center mt-2">{item.message} </p>
+                            <h2 className="text-2xl font-bold  ">{item?.name}</h2>
+                            <div className="chat chat-start ">
+                                <div className="chat-image avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="Tailwind CSS chat bubble component" className='w-20 h-20' src={item?.img} />
+                                    </div>
+                                </div>
+                                <div className="chat-bubble bg-white">{item?.message}</div>
+                            </div>
+                            {/* <p className="text-center mt-2">{item.message} </p> */}
 
                         </div>
                     </SwiperSlide>

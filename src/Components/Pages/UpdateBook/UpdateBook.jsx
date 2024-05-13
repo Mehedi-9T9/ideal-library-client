@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form"
 
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 
 const UpdateBook = () => {
+    const navigate = useNavigate()
 
     const updateData = useLoaderData()
     const { bookName, rating, photo, category, authorName, description, _id, returnDate, quantity, about } = updateData
@@ -24,6 +25,7 @@ const UpdateBook = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate('/myBook')
             })
 
     }

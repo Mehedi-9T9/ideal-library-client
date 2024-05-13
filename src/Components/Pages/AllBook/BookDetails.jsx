@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 
 const BookDetails = () => {
     const [reload, setReload] = useState(true)
     const [data, setData] = useState({})
+    const navigate = useNavigate()
     const { id } = useParams()
     const refetch = () => {
         setReload(!reload)
@@ -54,6 +55,7 @@ const BookDetails = () => {
             showConfirmButton: false,
             timer: 1500
         });
+        navigate('/borrowedBook')
     }
 
 
