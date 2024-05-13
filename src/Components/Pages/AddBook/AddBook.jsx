@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import useProvider from "../../Provider/useProvider";
 import axios from "axios";
+import Swal from 'sweetalert2'
 const AddBook = () => {
     const { users } = useProvider()
     const { register, handleSubmit, watch, formState: { errors }, } = useForm()
@@ -10,7 +11,18 @@ const AddBook = () => {
         const newdata = { ...data, email }
         console.log(newdata)
         axios.post('http://localhost:5000/addBook', newdata)
-            .then(res => console.log(res.data))
+            .then(res => {
+
+                console.log(res.data)
+                Swal.fire({
+                    // position: "top",
+                    icon: "success",
+                    title: "Book Added Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+
 
     }
     return (

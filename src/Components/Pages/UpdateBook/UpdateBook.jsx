@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form"
 
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
+import Swal from 'sweetalert2'
+
 
 const UpdateBook = () => {
 
@@ -13,7 +15,16 @@ const UpdateBook = () => {
 
         console.log(data);
         axios.patch(`http://localhost:5000/updateBook/${_id}`, data)
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data)
+                Swal.fire({
+                    // position: "top",
+                    icon: "success",
+                    title: "Book Update Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
 
     }
     return (

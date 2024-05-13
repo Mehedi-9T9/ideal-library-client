@@ -2,10 +2,12 @@ import React from 'react';
 import { FaPenAlt } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { FaStar } from "react-icons/fa";
 
 const BookCard = ({ info, returnHandle }) => {
     const { bookName, rating, photo, category, authorName, description, _id, returnDate, quantity } = info
-
+    const bookRating = [...Array(rating)]
+    console.log(bookRating);
     return (
         <div className="card  bg-[#F7F7F7] drop-shadow-md flex flex-row py-6 px-10">
             <figure className=" rounded-xl">
@@ -24,12 +26,12 @@ const BookCard = ({ info, returnHandle }) => {
                 }
                 <p className='font-poppins font-semibold'>Quantity: <span className='font-bold font-platypi text-red-500'>{quantity}</span></p>
 
-                <div defaultValue={rating} className="rating gap-1">
-                    <input type="radio" name="rating-3" className="mask mask-heart bg-red-500" />
-                    <input type="radio" name="rating-3" className="mask mask-heart bg-red-500" checked />
-                    <input type="radio" name="rating-3" className="mask mask-heart bg-red-500" />
-                    <input type="radio" name="rating-3" className="mask mask-heart bg-red-500" />
-                    <input type="radio" name="rating-3" className="mask mask-heart bg-red-500" />
+                <div defaultValue={rating} className="rating gap-1 items-center">
+                    <span className='text-lg font-platypi'>Rating: </span>
+                    {
+                        bookRating?.map((star, idx) => <FaStar className='text-yellow-500 ' key={idx} />)
+                    }
+
                 </div>
 
                 <div className="card-actions items-center mt-20">

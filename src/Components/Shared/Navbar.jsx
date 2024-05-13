@@ -1,15 +1,25 @@
 import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
 import useProvider from "../Provider/useProvider";
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
+import Swal from 'sweetalert2'
 
 
 const Navbar = () => {
     const { users, logoutUser } = useProvider()
+    console.log(users);
     const logoutHandle = () => {
         logoutUser()
             .then(() => {
                 // Sign-out successful.
-                alert('log out successfull')
+                Swal.fire({
+                    // position: "top",
+                    icon: "success",
+                    title: "Login Out Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }).catch((error) => {
                 // An error happened.
             });
@@ -34,23 +44,27 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to="/"><a className="  text-xl md:text-2xl font-platypi font-bold text-black"> <span className="text-[#C20E1A]    ">Ideal</span>  Library</a></Link>
+                    <Link to="/"><a className="  text-xl md:text-2xl font-platypi font-bold text-black"> <span className="text-[#C20E1A]   ">Ideal</span>  Library</a></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 space-x-10 text-[#343F52] text-base font-medium font-poppins">
                         {links}
                     </ul>
                 </div>
+                <Tooltip anchorSelect=".my-anchor-element" place="left">
+                    {users?.displayName}
+                </Tooltip>
 
 
 
                 <div className="navbar-end">
                     {
                         users ?
-                            <div className="dropdown dropdown-end drop-shadow-md ">
+
+                            <div className="dropdown dropdown-end drop-shadow-md my-anchor-element">
                                 <div tabIndex={0} role="button" className="btn  btn-circle avatar ">
-                                    <div className="w-10 rounded-full focus:outline-[#C20E1A]">
-                                        <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <div className="w-10 rounded-full focus:outline-[#C20E1A] ">
+                                        <img alt="No img" src={users?.photoURL} />
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52 z-20 ">

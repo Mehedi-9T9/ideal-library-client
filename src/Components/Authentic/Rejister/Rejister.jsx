@@ -1,23 +1,49 @@
 import { useForm } from "react-hook-form"
 import useProvider from "../../Provider/useProvider";
+import Swal from 'sweetalert2'
+import { Link } from "react-router-dom";
+
 
 const Rejister = () => {
-    const { createUser } = useProvider()
+    const { createUser, updateUser } = useProvider()
     const { register, handleSubmit, watch, formState: { errors }, } = useForm()
 
 
     const onSubmit = (data) => {
-        const { email, password } = data
+        const { email, password, name, photo } = data
+
         createUser(email, password)
             .then((userCredential) => {
                 // Signed up
                 const user = userCredential.user;
                 console.log(user);
+                Swal.fire({
+                    // position: "top",
+                    icon: "success",
+                    title: "Rejister Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                updateUser(name, photo)
+                    .then(() => {
+                        // Profile updated!
+                        // ...
+                    }).catch((error) => {
+                        // An error occurred
+                        // ...
+                    });
                 // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                Swal.fire({
+                    icon: "error",
+                    // title: "Oops...",
+                    text: errorMessage,
+
+                });
                 // ..
             });
     }
@@ -54,7 +80,7 @@ const Rejister = () => {
                         <label className="label">
                             <span className="label-text text-lg font-semibold font-platypi text-[#B09CA9]">Password</span>
                         </label>
-                        <input type="password" {...register("password", { required: true })} placeholder="Password" className="input input-bordered" />
+                        <input type="password" {...register("password", { pattern: /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/ }, { required: true })} placeholder="Password" className="input input-bordered" />
                         {errors.password && <span className="text-red-700 font-medium">This field is required</span>}
 
                     </div>
@@ -62,6 +88,7 @@ const Rejister = () => {
                         <button className="btn bg-[#83BB9E] text-lg font-poppins text-white">Rejister</button>
                     </div>
                 </form>
+                <p className="text-[#B09CA9] font-poppins text-center">Have Account  <Link to="/login" className="font-platypi font-bold">Go Login</Link></p>
             </div>
 
 

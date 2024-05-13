@@ -1,24 +1,58 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
 
 const BookDetails = () => {
-    const [work, setWork] = useState(false)
-    const data = useLoaderData()
+    const [reload, setReload] = useState(true)
+    const [data, setData] = useState({})
+    const { id } = useParams()
+    const refetch = () => {
+        setReload(!reload)
+    }
+    useEffect(() => {
+        axios.get(`http://localhost:5000/book/${id}`)
+            .then(res => setData(res.data))
+    }, [reload])
+    // const data = useLoaderData()
     const { photo, bookName, authorName, description, about, _id, quantity } = data
     const { _id: bookId, ...postData } = data
 
-    console.log(work);
+
     const borrowHandle = (e) => {
         e.preventDefault()
         const name = e.target.name.value
         const returnDate = e.target.returnDate.value
         const borrowInfo = { ...postData, name, returnDate }
 
+
+
         console.log(borrowInfo);
+
         // fetch(`http://localhost:5000/bookDetails/${_id}`)
         axios.post(`http://localhost:5000/bookDetails/${_id}`, borrowInfo)
-            .then(res => console.log(res.data))
+            .then(res => {
+                refetch()
+                console.log(res.data)
+                // Swal.fire({
+                //     // position: "top",
+                //     icon: "success",
+                //     title: "Book Added Successfully",
+                //     showConfirmButton: false,
+                //     timer: 1500
+                // });
+            })
+
+    }
+    const styling = () => {
+        Swal.fire({
+            // position: "top",
+            icon: "success",
+            title: "Book Added Successfully",
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
 
 
@@ -81,7 +115,7 @@ const BookDetails = () => {
                     <div className="modal-action mr-[46%] ">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn btn-circle drop-shadow-md text-xl
+                            <button onClick={styling} className="btn btn-circle drop-shadow-md text-xl
                              text-red-700 mx-auto">X</button>
                         </form>
                     </div>
