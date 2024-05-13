@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { FaStar } from "react-icons/fa";
 
 const BookCard = ({ info, returnHandle }) => {
-    const { bookName, rating, photo, category, authorName, description, _id, returnDate, quantity } = info
+    const { bookName, rating, photo, category, authorName, description, _id, returnDate, quantity, booksId } = info
     const bookRating = [...Array(rating)]
-    console.log(bookRating);
+    console.log(info);
     return (
         <div className="card  bg-[#F7F7F7] drop-shadow-md flex flex-row py-6 px-10">
             <figure className=" rounded-xl">
@@ -24,7 +24,9 @@ const BookCard = ({ info, returnHandle }) => {
                 {
                     returnDate ? <p className='text-red-700 font-semibold font-poppins'>Return Date: <span className='font-platypi text-black'>{returnDate}</span></p> : null
                 }
-                <p className='font-poppins font-semibold'>Quantity: <span className='font-bold font-platypi text-red-500'>{quantity}</span></p>
+                {
+                    !returnDate ? <p className='font-poppins font-semibold'>Quantity: <span className='font-bold font-platypi text-red-500'>{quantity}</span></p> : null
+                }
 
                 <div defaultValue={rating} className="rating gap-1 items-center">
                     <span className='text-lg font-platypi'>Rating: </span>
@@ -37,7 +39,7 @@ const BookCard = ({ info, returnHandle }) => {
                 <div className="card-actions items-center mt-20">
                     <p><MdCategory className='inline-block text-2xl' /> {category}</p>
                     {
-                        returnDate ? <button onClick={() => returnHandle(_id)} className="btn bg-[#FEF3F0] drop-shadow-md text-red-700 font-platypi font-medium">Return</button> :
+                        returnDate ? <button onClick={() => returnHandle(_id, booksId)} className="btn bg-[#FEF3F0] drop-shadow-md text-red-700 font-platypi font-medium">Return</button> :
                             <Link to={`/book/${_id}`} ><button className="btn bg-[#FEF3F0] drop-shadow-md text-red-700 font-platypi font-medium">Details</button></Link>
 
 

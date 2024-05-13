@@ -24,7 +24,8 @@ const BookDetails = () => {
         e.preventDefault()
         const name = e.target.name.value
         const returnDate = e.target.returnDate.value
-        const borrowInfo = { ...postData, name, returnDate }
+
+        const borrowInfo = { ...postData, name, returnDate, booksId: id }
 
 
 

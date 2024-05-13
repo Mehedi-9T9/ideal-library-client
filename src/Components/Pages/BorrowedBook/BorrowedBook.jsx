@@ -6,8 +6,8 @@ import Swal from 'sweetalert2'
 const BorrowedBook = () => {
     const [borrows, setBorrows] = useState([])
     const [reload, setReload] = useState(true)
-    const returnHandle = (id) => {
-        axios.delete(`http://localhost:5000/return/${id}`)
+    const returnHandle = (id, booksId) => {
+        axios.delete(`${import.meta.env.VITE_API}return/${id}`)
             .then(res => {
                 setReload(!reload)
                 console.log(res.data)
@@ -19,10 +19,12 @@ const BorrowedBook = () => {
                     timer: 1500
                 });
             })
+        axios.post(`${import.meta.env.VITE_API}updatequan/${booksId}`)
+            .then(res => console.log(res.data))
 
     }
     useEffect(() => {
-        axios.get('http://localhost:5000/borrow')
+        axios.get(`${import.meta.env.VITE_API}borrow`)
             .then(res => setBorrows(res.data))
     }, [reload])
 
