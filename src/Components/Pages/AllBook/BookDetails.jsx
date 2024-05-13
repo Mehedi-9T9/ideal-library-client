@@ -13,7 +13,7 @@ const BookDetails = () => {
         setReload(!reload)
     }
     useEffect(() => {
-        axios.get(`http://localhost:5000/book/${id}`)
+        axios.get(`${import.meta.env.VITE_API}book/${id}`)
             .then(res => setData(res.data))
     }, [reload])
     // const data = useLoaderData()

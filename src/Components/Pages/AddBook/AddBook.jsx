@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form"
 import useProvider from "../../Provider/useProvider";
 import axios from "axios";
 import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 const AddBook = () => {
     const { users } = useProvider()
+    const navigate = useNavigate()
     const { register, handleSubmit, watch, formState: { errors }, } = useForm()
 
     const onSubmit = (data) => {
@@ -21,6 +23,7 @@ const AddBook = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate('/allBook')
             })
 
 
