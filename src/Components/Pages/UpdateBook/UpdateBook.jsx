@@ -14,7 +14,7 @@ const UpdateBook = () => {
     const onSubmit = (data) => {
 
         console.log(data);
-        axios.patch(`http://localhost:5000/updateBook/${_id}`, data)
+        axios.patch(`${import.meta.env.VITE_API}updateBook/${_id}`, data)
             .then(res => {
                 console.log(res.data)
                 Swal.fire({

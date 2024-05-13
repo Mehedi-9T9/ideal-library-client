@@ -32,7 +32,7 @@ const BookDetails = () => {
         console.log(borrowInfo);
 
         // fetch(`http://localhost:5000/bookDetails/${_id}`)
-        axios.post(`http://localhost:5000/bookDetails/${_id}`, borrowInfo)
+        axios.post(`${import.meta.env.VITE_API}bookDetails/${_id}`, borrowInfo)
             .then(res => {
                 refetch()
                 console.log(res.data)

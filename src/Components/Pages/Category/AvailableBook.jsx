@@ -5,7 +5,7 @@ import BookCard from '../AllBook/BookCard';
 const AvailableBook = () => {
     const [filterBook, setFilterBook] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/availablebook')
+        axios.get(`${import.meta.env.VITE_API}availablebook`)
             .then(res => {
                 const data = res.data
                 const availableBook = data.filter(item => item.quantity > 0)

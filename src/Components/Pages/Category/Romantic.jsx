@@ -4,7 +4,7 @@ import BookCard from '../AllBook/BookCard';
 const Romantic = () => {
     const [romantics, setRonamtics] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/romantic')
+        fetch(`${import.meta.env.VITE_API}romantic`)
             .then(res => res.json())
             .then(data => setRonamtics(data))
     }, [])

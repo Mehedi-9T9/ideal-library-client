@@ -4,7 +4,7 @@ import BookCard from '../AllBook/BookCard';
 const Kids = () => {
     const [kids, setKids] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/kids')
+        fetch(`${import.meta.env.VITE_API}kids`)
             .then(res => res.json())
             .then(data => setKids(data))
     }, [])

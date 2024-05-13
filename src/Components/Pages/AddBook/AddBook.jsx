@@ -10,7 +10,7 @@ const AddBook = () => {
         const email = users.email
         const newdata = { ...data, email }
         console.log(newdata)
-        axios.post('http://localhost:5000/addBook', newdata)
+        axios.post(`${import.meta.env.VITE_API}addBook`, newdata)
             .then(res => {
 
                 console.log(res.data)

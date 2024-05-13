@@ -46,10 +46,7 @@ const Login = () => {
     const googleHandle = () => {
         googleLogin()
             .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                // const credential = GoogleAuthProvider.credentialFromResult(result);
-                // const token = credential.accessToken;
-                // The signed-in user info.
+
                 const user = result.user;
                 console.log(user);
                 Swal.fire({
@@ -74,11 +71,7 @@ const Login = () => {
                     text: errorMessage,
 
                 });
-                // The email of the user's account used.
-                // const email = error.customData.email;
-                // The AuthCredential type that was used.
-                // const credential = GoogleAuthProvider.credentialFromError(error);
-                // ...
+
             });
     }
     const githubHandle = () => {
@@ -96,17 +89,7 @@ const Login = () => {
 
                 navigate(from)
 
-                // const credential = GithubAuthProvider.credentialFromResult(result);
-                // if (credential) {
-                //     // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-                //     // const token = credential.accessToken;
-                //     // ...
-                // }
 
-                // The signed-in user info.
-
-                // IdP data available using getAdditionalUserInfo(result)
-                // ...
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
@@ -118,11 +101,7 @@ const Login = () => {
                     text: errorMessage,
 
                 });
-                // The email of the user's account used.
-                // const email = error.customData.email;
-                // The AuthCredential type that was used.
-                // const credential = GithubAuthProvider.credentialFromError(error);
-                // ...
+
             });
     }
     return (

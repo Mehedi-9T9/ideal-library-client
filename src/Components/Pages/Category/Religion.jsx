@@ -4,7 +4,7 @@ import BookCard from '../AllBook/BookCard';
 const Religion = () => {
     const [religions, setReligions] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/religion')
+        fetch(`${import.meta.env.VITE_API}religion`)
             .then(res => res.json())
             .then(data => setReligions(data))
     }, [])

@@ -7,7 +7,7 @@ const MyBook = () => {
     const { users } = useProvider()
     const [mybook, setMybook] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:5000/mybook/${users.email}`)
+        axios.get(`${import.meta.env.VITE_API}mybook/${users.email}`)
             .then(res => setMybook(res.data))
     }, [])
     return (
