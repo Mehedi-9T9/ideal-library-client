@@ -1,8 +1,16 @@
-# React + Vite
+# Welcome
+This is Educational websie, and category library and this website name is Ideal Library.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aboute Of Ideal Library:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Live Site Link](https://ideal-library.web.app/)
+- This is Single page application
+- This site make react js
+- This site route for react router used,
+- This site daisy ui used for css
+- This site many package used swiper js, react hook form, react tooltip, etc
+- This site authenticaion for package use firebase
+- This site of database mongodb,
+- This site have private route
+- This site extra 2 Provider used google, github
+- This site complate responsive
