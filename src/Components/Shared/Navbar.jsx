@@ -63,7 +63,7 @@ const Navbar = () => {
 
 
 
-                <div className="navbar-end mr-5">
+                <div className="navbar-end md:mr-5">
                     {
                         users ?
 
@@ -89,7 +89,7 @@ const Navbar = () => {
 
                 </div>
 
-                <label className="swap swap-rotate mr-10">
+                <label className="swap swap-rotate md:mr-10">
 
                     {/* this hidden checkbox controls the state */}
                     <input onChange={themeHandle} type="checkbox" />

@@ -29,7 +29,7 @@ const BorrowedBook = () => {
     }, [reload])
 
     return (
-        <div className='container mx-auto grid grid-cols-2 gap-5 my-10'>
+        <div className='container mx-auto md:grid grid-cols-2 gap-5 my-10'>
 
             {
                 borrows?.map(borrow => <BookCard key={borrow._id} info={borrow} returnHandle={returnHandle}></BookCard>)

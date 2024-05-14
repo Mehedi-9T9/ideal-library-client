@@ -7,7 +7,7 @@ const MybookCard = ({ info }) => {
     const { bookName, rating, photo, category, authorName, description, _id, returnDate, quantity } = info
 
     return (
-        <div className="card  bg-[#F7F7F7] drop-shadow-md flex flex-row py-6 px-10">
+        <div className="card  bg-[#F7F7F7] drop-shadow-md md:flex md:flex-row py-6 px-10 md:mb-0 mb-5">
             <figure className=" rounded-xl">
                 <div className='rounded-xl bg-[#F7F7F7]'>
                     <img src={photo} alt="Shoes" className="rounded-2xl w-[250px] h-80  " />

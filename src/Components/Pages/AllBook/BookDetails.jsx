@@ -62,7 +62,7 @@ const BookDetails = () => {
 
 
     return (
-        <div className='container mx-auto bg-[#F7F7F7]  p-20 m-10 rounded-xl md:flex gap-x-10 '>
+        <div className='container mx-auto bg-[#F7F7F7] p-10 md:p-20 m-10 rounded-xl md:flex gap-x-10 '>
             <div className='md:w-[40%]'>
                 <img src={photo} alt="" className='rounded-xl' />
             </div>

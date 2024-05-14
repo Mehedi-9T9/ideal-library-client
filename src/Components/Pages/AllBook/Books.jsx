@@ -13,7 +13,7 @@ const Books = () => {
         <div className='container mx-auto my-10 '>
             <div role="tablist" className="tabs tabs-lifted  ">
                 <input type="radio" name="my_tabs_1" role="tab" className="tab text-xl font-platypi" aria-label="Romantic" checked />
-                <div role="tabpanel" className="tab-content p-10">
+                <div role="tabpanel" className="tab-content md:p-10">
                     <Romantic></Romantic>
                 </div>
 

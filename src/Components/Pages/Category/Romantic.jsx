@@ -9,7 +9,7 @@ const Romantic = () => {
             .then(data => setRonamtics(data))
     }, [])
     return (
-        <div className='md:grid grid-cols-2 gap-6'>
+        <div className='md:grid grid-cols-2 gap-6 '>
             {
                 romantics.map(romantic => <BookCard key={romantic._id} info={romantic}></BookCard>)
             }

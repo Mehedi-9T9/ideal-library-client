@@ -9,10 +9,10 @@ const BookCard = ({ info, returnHandle }) => {
     const bookRating = [...Array(rating)]
     console.log(info);
     return (
-        <div className="card  bg-[#F7F7F7] drop-shadow-md flex flex-row py-6 px-10">
+        <div className="card  bg-[#F7F7F7] drop-shadow-md md:flex md:flex-row py-6 px-5 md:px-10 mb-5 md:mb-0">
             <figure className=" rounded-xl">
                 <div className='rounded-xl bg-[#F7F7F7]'>
-                    <img src={photo} alt="Shoes" className="rounded-2xl w-[250px] h-80  " />
+                    <img src={photo} alt="Shoes" className="rounded-2xl w-[250px] md:h-80  " />
                 </div>
             </figure>
             <div className="card-body ">

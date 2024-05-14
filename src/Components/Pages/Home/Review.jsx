@@ -48,7 +48,14 @@ const Review = () => {
                 modules={[Virtual, Autoplay, Navigation, Pagination]}
                 // onSwiper={setSwiperRef}
                 loop={true}
-                slidesPerView={3}
+                slidesPerView={
+                    window.innerWidth <= 550
+                        ? 1
+                        : window.innerWidth <= 720
+                            ? 2
+                            : window.innerWidth > 720
+                                ? 3
+                                : 0}
                 centeredSlides={true}
                 spaceBetween={30}
                 autoplay={{
@@ -63,7 +70,7 @@ const Review = () => {
             >
                 {fedback?.map((item, inx) => (
                     <SwiperSlide key={inx} >
-                        <div className='bg-[#FeF3F0] w-[400px]  p-5 rounded-xl drop-shadow-md'>
+                        <div className='bg-[#FeF3F0] md:w-[400px]  p-5 rounded-xl drop-shadow-md'>
                             <h2 className="text-2xl font-bold  ">{item?.name}</h2>
                             <div className="chat chat-start ">
                                 <div className="chat-image avatar">
